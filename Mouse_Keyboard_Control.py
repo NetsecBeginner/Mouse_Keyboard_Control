@@ -1,4 +1,22 @@
 #!/usr/bin/env python2
+#===================================License=====================================
+ '''
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+#===================================License=====================================
+
+
 #import curses for tui, libxdo to send keys/mouse input
 import curses
 from xdo import Xdo
@@ -39,7 +57,9 @@ def main():
 				xdo.enter_text_window(0, userInput.encode())
 			elif kInput == ord('q'): #Exit
 				exitApplication()
-		except KeyboardInterrupt:
+				return 0
+		except: #NOTE: This is only to un-fuck the terminal if it crashes
+			return 1
 			exitApplication()
 
 
